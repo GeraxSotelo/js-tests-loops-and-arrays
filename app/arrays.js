@@ -61,7 +61,7 @@ function elemsTimesLength(arr) {
 
 // 4. Given a multidimensional array, return a single dimension array with all of the primitive data elements within the multidimensional array.
 // Example:
-// input:  [[['legume'], 3, []], 2, ['tree', [{}, [5]]]]
+// input:  [  [  ['legume'],3,[]  ]   ,2,   [ 'tree',[{},[5]] ]  ]
 // output: ['legume', 3, 2, 'tree', 5]
 // Primitive data types - https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 
@@ -101,7 +101,12 @@ let flights = [{
 
 function flightCost(destination, firstClass) {
     //***hint: use the find method***
-
+    let flight = flights.find(item => item.to.toLowerCase() === destination.toLowerCase());
+    if (firstClass) {
+        return flight.prices.firstClass;
+    } else {
+        return flight.prices.standard;
+    }
 }
 
 
@@ -122,7 +127,12 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
 function findById(id) {
-
+    let staffMember = staff.find(item => item.id == id);
+    if (staffMember) {
+        return staffMember;
+    } else {
+        return { error: "No user with that id." }
+    }
 }
 
 
@@ -149,4 +159,6 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
+    let member = theBand.members.find(item => item.name.toLowerCase().includes(name.toLowerCase()));
+    return `${member.name} is in the band and plays the ${member.instrument}`
 }
