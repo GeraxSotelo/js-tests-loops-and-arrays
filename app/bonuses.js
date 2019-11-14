@@ -53,36 +53,22 @@ function sumEqualsTarget(arr, target) {
 // input:  [2, 9, 4, 3, 6, 6, 1, 5, 8]
 // output: [2, 1, 4, 3, 6, 6, 5, 9, 8]
 
-// function oddAscender(arr) {
+function oddAscender(arr) {
 
-//   let temp;
+  let filteredOddArr = arr.filter(item => item % 2 !== 0).sort((a, b) => a - b);
+  let newArr = [];
+  let counter = 0;
 
-//   for (let i = 0; i < arr.length;) {
-//     let first = arr[i];
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
+    if (num % 2 == 0) {
+      newArr.push(num)
+    } else {
+      newArr.push(filteredOddArr[counter]);
+      counter++;
+    }
+  }
 
-//     if (first % 2 == 0) {
-//       i++;
-//     } else {
-//       for (let j = arr.indexOf(first) + 1; j < arr.length; j++) {
-//         let second = arr[j];
+  return newArr;
 
-//         if (second % 2 == 0) {
-//           continue;
-//         } else {
-//           if (first > second) {
-//             tempFirst = first;
-//             tempSecond = second;
-//             arr[arr.indexOf(second)] = tempFirst;
-//             arr[arr.indexOf(first)] = tempSecond;
-//           }
-//         } 
-
-//       } 
-//       i++;
-//     } 
-
-
-//   }
-
-//   return arr;
-// }
+}
