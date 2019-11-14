@@ -65,8 +65,10 @@ function elemsTimesLength(arr) {
 // output: ['legume', 3, 2, 'tree', 5]
 // Primitive data types - https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 
-function arrayFlattener(arr) {
 
+function arrayFlattener(arr) {
+    let newArr = arr.flat(Infinity);
+    return newArr.filter(item => item !== Object(item))
 }
 
 
