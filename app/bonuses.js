@@ -9,7 +9,16 @@
 // Hint: Utilize the string prototype method charCodeAt and generic method fromCharCode
 
 function letterChecker(str) {
-
+  let strArr = str.toLowerCase().split("");
+  for (let i = 1; i < strArr.length; i++) {
+    let letter = strArr[i];
+    let prevLetter = strArr[i - 1];
+    if (letter.charCodeAt(0) - prevLetter.charCodeAt(0) > 1) {
+      let missingLetterCode = letter.charCodeAt(0) - 1;
+      return String.fromCharCode(missingLetterCode);
+    }
+  }
+  return "no missing letters"
 }
 
 
@@ -23,6 +32,15 @@ function letterChecker(str) {
 // output: true (because 4+3)
 
 function sumEqualsTarget(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    let first = arr[i];
+    for (let j = 0; j < arr.length; j++) {
+      let second = arr[j];
+      if (first + second == target) {
+        return true;
+      }
+    }
+  }
 }
 
 
@@ -35,5 +53,36 @@ function sumEqualsTarget(arr, target) {
 // input:  [2, 9, 4, 3, 6, 6, 1, 5, 8]
 // output: [2, 1, 4, 3, 6, 6, 5, 9, 8]
 
-function oddAscender(arr) {
-}
+// function oddAscender(arr) {
+
+//   let temp;
+
+//   for (let i = 0; i < arr.length;) {
+//     let first = arr[i];
+
+//     if (first % 2 == 0) {
+//       i++;
+//     } else {
+//       for (let j = arr.indexOf(first) + 1; j < arr.length; j++) {
+//         let second = arr[j];
+
+//         if (second % 2 == 0) {
+//           continue;
+//         } else {
+//           if (first > second) {
+//             tempFirst = first;
+//             tempSecond = second;
+//             arr[arr.indexOf(second)] = tempFirst;
+//             arr[arr.indexOf(first)] = tempSecond;
+//           }
+//         } 
+
+//       } 
+//       i++;
+//     } 
+
+
+//   }
+
+//   return arr;
+// }
